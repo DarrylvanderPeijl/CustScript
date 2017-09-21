@@ -5,7 +5,9 @@ param (
     [string]$fileToInstall
 )
 
-$source = $Scriptlocation + "\$folderName\$fileToInstall"
+$source = $Scriptlocation + "$fileToInstall"
 $dest = "C:\Perftest\$folderName"
 New-Item -Path $dest -ItemType directory
 Invoke-WebRequest $source -OutFile "$dest\$fileToInstall"
+"balzak" | out-file $dest\balzak.txt -Append
+
